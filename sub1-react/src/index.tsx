@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import { RootComponent } from './App';
 
-const rootEl = document.getElementById('root');
-if (rootEl) {
-  const root = ReactDOM.createRoot(rootEl);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-  );
+import { reactBridge } from '@garfish/bridge-react-v18';
+
+export const provider = reactBridge({
+  el: '#root',
+  rootComponent: RootComponent,
+});
+
+console.log(window.__GARFISH__);
+
+if (!window.__GARFISH__) {
+  const rootEl = document.getElementById('root');
+  if (rootEl) {
+    const root = ReactDOM.createRoot(rootEl);
+    root.render(
+      <React.StrictMode>
+        <RootComponent />
+      </React.StrictMode>,
+    );
+  }
 }
