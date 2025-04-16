@@ -50,7 +50,13 @@ const App = () => {
             snapshot: false,
             fixBaseUrl: false,
             fixStaticResourceBaseUrl: true,
-            modules: {}
+            modules: [
+              () => ({
+                override: {
+                  localStorage: window.localStorage,
+                },
+              }),
+            ],
           }
         },
         {
@@ -62,6 +68,18 @@ const App = () => {
             a: 1,
             b: 2,
           },
+          sandbox: {
+            snapshot: false,
+            fixBaseUrl: false,
+            fixStaticResourceBaseUrl: true,
+            modules: [
+              () => ({
+                override: {
+                  localStorage: window.localStorage,
+                },
+              }),
+            ],
+          }
         },
       ]
     }, )
