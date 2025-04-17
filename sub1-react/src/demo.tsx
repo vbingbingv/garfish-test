@@ -1,13 +1,8 @@
-import Garfish from 'garfish';
-
+import { useNavigate } from 'react-router';
 export function Home() {
+  const navigate = useNavigate();
   const onClick = () => {
-    Garfish.router.push({
-      path: '/sub-vue3',
-      query: {
-        path: '/sub-vue3',
-      },
-    });
+    navigate('/sub-vue3');
   };
   return (
     <div>

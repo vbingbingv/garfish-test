@@ -20,5 +20,3 @@ if (rootEl) {
     </React.StrictMode>,
   );
 }
-if (!window.__GARFISH__) {
-}

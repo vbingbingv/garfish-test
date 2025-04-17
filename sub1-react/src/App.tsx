@@ -27,7 +27,7 @@ export function RootComponent(props: RootComponentProps) {
   }, []);
   useEffect(() => {
     Garfish.run({
-      basename: '/',
+      basename: props.basename || '/',
       apps: [
         {
           name: 'sub-vue3',
@@ -39,7 +39,7 @@ export function RootComponent(props: RootComponentProps) {
             b: 2,
           },
           sandbox: {
-            snapshot: true,
+            snapshot: false,
             fixBaseUrl: false,
             fixStaticResourceBaseUrl: true,
           },
