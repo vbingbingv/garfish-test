@@ -11,11 +11,11 @@ export function Home() {
   };
   return (
     <div>
-      <div onClick={onClick}>子应用sub-vue3</div>
+      <button onClick={onClick}>子应用sub-vue3</button>
     </div>
   );
 }
 
 export function Sub1() {
-  return <div id="sub-vue3"></div>;
+  return <div id="sub-vue3">loading...</div>;
 }

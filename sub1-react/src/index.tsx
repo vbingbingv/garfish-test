@@ -11,14 +11,14 @@ export const provider = reactBridge({
 
 console.log(window.__GARFISH__);
 
+const rootEl = document.getElementById('root');
+if (rootEl) {
+  const root = ReactDOM.createRoot(rootEl);
+  root.render(
+    <React.StrictMode>
+      <RootComponent />
+    </React.StrictMode>,
+  );
+}
 if (!window.__GARFISH__) {
-  const rootEl = document.getElementById('root');
-  if (rootEl) {
-    const root = ReactDOM.createRoot(rootEl);
-    root.render(
-      <React.StrictMode>
-        <RootComponent />
-      </React.StrictMode>,
-    );
-  }
 }

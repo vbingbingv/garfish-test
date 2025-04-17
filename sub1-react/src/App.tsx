@@ -9,8 +9,9 @@ interface RootComponentProps {
 }
 
 export function RootComponent(props: RootComponentProps) {
-  console.log(props);
+  console.log('RootComponent', props);
   console.log('window.test', window.test);
+  console.log('localStorage', localStorage);
   const router = useMemo(() => {
     return createBrowserRouter([
       {
@@ -41,13 +42,6 @@ export function RootComponent(props: RootComponentProps) {
             snapshot: true,
             fixBaseUrl: false,
             fixStaticResourceBaseUrl: true,
-            modules: [
-              () => ({
-                override: {
-                  localStorage: window.localStorage,
-                },
-              }),
-            ],
           },
         },
       ],
