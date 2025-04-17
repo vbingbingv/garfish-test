@@ -19,7 +19,7 @@ export default defineConfig({
   html: {
     mountId: 'sub-vue3-root',
   },
-  output: {
+  dev: {
     assetPrefix: 'http://localhost:3003',
   },
   server: {

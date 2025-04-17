@@ -11,7 +11,7 @@ export const provider = reactBridge({
 
 console.log(window.__GARFISH__);
 
-const rootEl = document.getElementById('root');
+const rootEl = document.getElementById('sub1-react-mount-id');
 if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
   root.render(

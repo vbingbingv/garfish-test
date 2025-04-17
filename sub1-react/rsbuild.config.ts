@@ -16,10 +16,13 @@ export default defineConfig({
       },
     },
   },
+  html: {
+    mountId: 'sub1-react-mount-id',
+  },
   server: {
     port: 3000,
   },
-  output: {
+  dev: {
     assetPrefix: 'http://localhost:3000',
   },
 });
