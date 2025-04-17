@@ -20,9 +20,9 @@ export default defineConfig({
     mountId: 'sub1-react-mount-id',
   },
   server: {
-    port: 3000,
+    port: 3002,
   },
   dev: {
-    assetPrefix: 'http://localhost:3000',
+    assetPrefix: 'http://localhost:3002',
   },
 });

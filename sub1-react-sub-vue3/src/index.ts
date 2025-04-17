@@ -29,7 +29,7 @@ export const provider = vueBridge({
   },
 });
 console.log(window.__GARFISH__);
-
+// 纯子应用，不依赖Garfish，可以通过判断__GARFISH__单独运行（不要引入Garfish即可）
 if (!window.__GARFISH__) {
   const app = createApp(App);
   app.use(newRouter('/'));
