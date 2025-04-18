@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   html: {
-    mountId: 'sub-vue3-root',
+    mountId: process.env.PUBLIC_MOUNT_ID,
   },
   dev: {
     assetPrefix: 'http://localhost:3003',

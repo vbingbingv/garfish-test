@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     port: 3005,
   },
+  html: {
+    mountId: process.env.PUBLIC_MOUNT_ID,
+  },
   dev: {
     assetPrefix: 'http://localhost:3005',
   },

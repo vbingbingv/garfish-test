@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   html: {
-    mountId: 'sub1-react-mount-id',
+    mountId: process.env.PUBLIC_MOUNT_ID,
   },
   server: {
     port: 3002,

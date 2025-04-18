@@ -33,5 +33,5 @@ console.log(window.__GARFISH__);
 if (!window.__GARFISH__) {
   const app = createApp(App);
   app.use(newRouter('/'));
-  app.mount('#sub-vue3-root');
+  app.mount(`#${process.env.PUBLIC_MOUNT_ID}`);
 }
