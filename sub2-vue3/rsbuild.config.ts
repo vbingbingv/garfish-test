@@ -1,4 +1,4 @@
-import { defineConfig } from '@rsbuild/core';
+import { defineConfig, rspack } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
 
 export default defineConfig({
@@ -12,8 +12,13 @@ export default defineConfig({
         },
         // 修改不规范的代码格式，避免逃逸沙箱
         globalObject: 'window',
-        chunkLoadingGlobal: 'sub1-react-sub-vue3',
+        chunkLoadingGlobal: 'sub2-vue3',
       },
+      plugins: [
+        new rspack.BannerPlugin({
+          banner: 'Sub2 Vue3',
+        }),
+      ],
     },
   },
   server: {

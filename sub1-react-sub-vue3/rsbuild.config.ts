@@ -1,4 +1,4 @@
-import { defineConfig } from '@rsbuild/core';
+import { defineConfig, rspack } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
 
 export default defineConfig({
@@ -14,6 +14,11 @@ export default defineConfig({
         globalObject: 'window',
         chunkLoadingGlobal: 'sub1-react-sub-vue3',
       },
+      plugins: [
+        new rspack.BannerPlugin({
+          banner: 'Sub1 React Sub Vue3',
+        }),
+      ],
     },
   },
   html: {
