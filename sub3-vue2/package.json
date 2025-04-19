@@ -9,6 +9,7 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@garfish/bridge-vue-v2": "^1.19.4",
     "garfish": "^1.19.4",
     "vue": "^2.7.16",
     "vue-router": "^3.6.5"
