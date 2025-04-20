@@ -30,7 +30,9 @@ export const provider = vueBridge({
 });
 
 try {
-  createApp(App).use(newRouter('/')).mount(`#${process.env.PUBLIC_MOUNT_ID}`);
+  if (!window.__GARFISH__) {
+    createApp(App).use(newRouter('/')).mount(`#${process.env.PUBLIC_MOUNT_ID}`);
+  }
 } catch (e) {
   console.error('single mount error');
 }
