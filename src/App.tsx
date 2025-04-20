@@ -3,7 +3,7 @@ import Garfish from 'garfish';
 import { useEffect, useMemo } from 'react';
 import { RouterProvider } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
-import { Home, Sub1, Sub2 } from './demo.tsx';
+import { Home, Sub1, Sub2, Sub3 } from './demo.tsx';
 
 const App = () => {
   const router = useMemo(() => {
@@ -21,77 +21,44 @@ const App = () => {
         path: '/sub2/*',
         element: <Sub2 />,
       },
+      {
+        path: '/sub3/*',
+        element: <Sub3 />,
+      },
     ]);
   }, []);
   useEffect(() => {
-    window.test = 'main';
     Garfish.run({
       basename: '/',
       apps: [
         {
           name: 'sub1',
-          entry: 'http://localhost:3000',
+          entry: 'http://localhost:3002',
           domGetter: '#sub1',
           activeWhen: '/sub1',
           props: {
             a: 1,
             b: 2,
           },
-          sandbox: {
-            snapshot: true,
-            fixBaseUrl: false,
-            fixStaticResourceBaseUrl: true,
-            modules: [
-              () => ({
-                override: {
-                  localStorage: window.localStorage,
-                },
-              }),
-            ],
-          },
         },
         {
           name: 'sub2',
-          entry: 'http://localhost:3001',
+          entry: 'http://localhost:3004',
           domGetter: '#sub2',
           activeWhen: '/sub2',
           props: {
             a: 1,
             b: 2,
           },
-          sandbox: {
-            snapshot: false,
-            fixBaseUrl: false,
-            fixStaticResourceBaseUrl: true,
-            modules: [
-              () => ({
-                override: {
-                  localStorage: window.localStorage,
-                },
-              }),
-            ],
-          },
         },
         {
           name: 'sub3',
-          entry: 'http://localhost:3002',
+          entry: 'http://localhost:3001',
           domGetter: '#sub3',
           activeWhen: '/sub3',
           props: {
             a: 1,
             b: 2,
-          },
-          sandbox: {
-            snapshot: false,
-            fixBaseUrl: false,
-            fixStaticResourceBaseUrl: true,
-            modules: [
-              () => ({
-                override: {
-                  localStorage: window.localStorage,
-                },
-              }),
-            ],
           },
         },
       ],
