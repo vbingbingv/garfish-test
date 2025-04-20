@@ -16,6 +16,8 @@ const routes = [
   { path: '/about', component: About },
 ];
 
+Vue.use(VueRouter);
+
 function newRouter(basename: string) {
   return new VueRouter({
     mode: 'history',
@@ -31,19 +33,20 @@ export const provider = vueBridge({
   appOptions: ({ basename }) => {
     // pass the options to Vue Constructor. check https://vuejs.bootcss.com/api/#%E9%80%89%E9%A1%B9-%E6%95%B0%E6%8D%AE
     return {
-      el: '#app',
+      el: `#${process.env.PUBLIC_MOUNT_ID}`,
       router: newRouter(basename),
     };
   },
 });
 
 try {
-  Vue.use(VueRouter);
-  new Vue({
-    router: newRouter('/'),
-    el: `#${process.env.PUBLIC_MOUNT_ID}`,
-    render: (h) => h(App),
-  });
+  if (!window.__GARFISH__) {
+    new Vue({
+      router: newRouter('/'),
+      el: `#${process.env.PUBLIC_MOUNT_ID}`,
+      render: (h) => h(App),
+    });
+  }
 } catch (e) {
   console.error('single mount error');
 }
