@@ -10,21 +10,24 @@ interface RootComponentProps {
 
 export function RootComponent(props: RootComponentProps) {
   console.log('RootComponent', props);
-  console.log('window.test', window.test);
-  console.log('localStorage', localStorage);
   const router = useMemo(() => {
-    return createBrowserRouter([
+    return createBrowserRouter(
+      [
+        {
+          path: '/',
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: '/sub-vue3/*',
+          element: <Sub1 />,
+        },
+      ],
       {
-        path: '/',
-        index: true,
-        element: <Home />,
+        basename: props.basename || '/',
       },
-      {
-        path: '/sub-vue3/*',
-        element: <Sub1 />,
-      },
-    ]);
-  }, []);
+    );
+  }, [props.basename]);
   useEffect(() => {
     Garfish.run({
       basename: props.basename || '/',
