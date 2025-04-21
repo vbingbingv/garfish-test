@@ -9,6 +9,7 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@garfish/bridge-react-v18": "^1.19.4",
     "antd": "^5.24.7",
     "garfish": "^1.19.4",
     "react": "^18.3.1",
