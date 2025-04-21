@@ -1,8 +1,7 @@
 import { vueBridge } from '@garfish/bridge-vue-v3';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import About from './About.vue';
-import App from './App.vue';
+import Sub from './Sub.vue';
 import './index.css';
 import Home from './Home.vue';
 import Router from './Router.vue';
@@ -10,11 +9,13 @@ import Router from './Router.vue';
 const routes = [
   { path: '/', component: Router },
   { path: '/home', component: Home },
-  { path: '/about', component: About },
+  {
+    path: '/sub/:chapters*',
+    component: Sub,
+  },
 ];
 
 function newRouter(basename: string) {
-  console.log('11111 basename', basename);
   return createRouter({
     history: createWebHistory(basename),
     routes,
@@ -22,7 +23,9 @@ function newRouter(basename: string) {
 }
 
 export const provider = vueBridge({
-  rootComponent: App,
+  async loadRootComponent() {
+    return (await import('./App.vue')).default;
+  },
   // 可选，注册 vue-router或状态管理对象
   handleInstance: (vueInstance, { basename }) => {
     vueInstance.use(newRouter(basename));
@@ -30,9 +33,15 @@ export const provider = vueBridge({
 });
 
 try {
-  if (!window.__GARFISH__) {
-    createApp(App).use(newRouter('/')).mount(`#${process.env.PUBLIC_MOUNT_ID}`);
+  async function init() {
+    if (!window.__GARFISH__) {
+      const App = (await import('./App.vue')).default;
+      createApp(App)
+        .use(newRouter('/'))
+        .mount(`#${process.env.PUBLIC_MOUNT_ID}`);
+    }
   }
+  init();
 } catch (e) {
   console.error('single mount error');
 }

@@ -4,22 +4,20 @@
     <p>Start building amazing things with Rsbuild. react子应用的vue子应用</p>
     <RouterView />
     <button @click="jumpHome">跳转home页面</button>
-    <button @click="jumpAbout">跳转about页面</button>
+    <button @click="jumpSub">跳转子应用页面</button>
   </div>
 </template>
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 const router = useRouter();
 function jumpHome() {
-  console.log(11111, router.getRoutes());
   router.push({
     path: '/home',
   });
 }
-function jumpAbout() {
-  console.log(11111, router.getRoutes());
+function jumpSub() {
   router.push({
-    path: '/about',
+    path: '/sub',
   });
 }
 </script>

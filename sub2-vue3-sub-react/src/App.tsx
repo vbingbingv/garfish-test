@@ -17,7 +17,7 @@ export function RootComponent(props: RootComponentProps) {
           element: <Home />,
         },
         {
-          path: '/about/*',
+          path: '/about',
           element: <About />,
         },
       ],
