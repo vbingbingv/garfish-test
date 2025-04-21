@@ -26,6 +26,7 @@
     "@rsbuild/plugin-less": "^1.2.2",
     "@rsbuild/plugin-react": "^1.1.1",
     "@rsbuild/plugin-svgr": "^1.2.0",
+    "@types/node": "^18.19.86",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "eslint": "^9.23.0",
